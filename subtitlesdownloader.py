@@ -43,7 +43,7 @@ answer= ""
 soup = BeautifulSoup(data)
 tag = soup.findAll('td')
 for i in range(7, 10000, 11):
-    if(tag[i].text==sea and tag[i+1].text==epi and tag[i+3].text==lang and tag[i+4].text==ver):
+    if(tag[i].text==sea and tag[i+1].text==epi and tag[i+3].text=="English" and tag[i+4].text==ver):
         tag_a=tag[i+9].find('a')
         answer = tag_a['href']
         break
@@ -73,4 +73,4 @@ if(answer==""):
     print("\n\n\nNo Subtitle Found")
 if(answer!=""):
     print("\n\nYay!")
-    os.system("start IDMan /d "+url+answer)
+    os.system("start IDMan /d "+url+answer+" /p \"H:\TV series\\"+tvs+"\\Season "+sea+"\Episode "+epi+"\\")
